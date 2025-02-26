@@ -3,7 +3,7 @@ import { useDrag } from "react-dnd";
 import AuthContext from "../../provider/AuthContext";
 import TaskCard from "./TaskCard";
 
-export default function Task({ task }) {
+export default function Task({ task,moveTask, fetchTasks }) {
   const {isDark ,setCategory} = useContext(AuthContext)
   const [{ isDragging }, dragRef] = useDrag(() => ({
     type: "TASK",
@@ -15,7 +15,7 @@ export default function Task({ task }) {
 
   return (
       <div ref={dragRef} className="card bg-base-50 shadow-xl border ">
-                <TaskCard task={task}></TaskCard>
+                <TaskCard task={task} moveTask={moveTask} fetchTasks={fetchTasks}></TaskCard>
       </div>
   );
 }

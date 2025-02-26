@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router';
 import AuthContext from '../../provider/AuthContext';
 import Swal from 'sweetalert2';
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task,moveTask, fetchTasks }) => {
     const { isDark, setCategory } = useContext(AuthContext)
     const navigate = useNavigate()
     const handleDelete = (id) => {
@@ -18,11 +18,12 @@ const TaskCard = ({ task }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://taskly-server-murex.vercel.app/task/${id}`, {
+                fetch(`http://localhost:3000/task/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
+                        fetchTasks()
                         navigate('/')
                     })
 

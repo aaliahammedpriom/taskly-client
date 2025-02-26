@@ -1,11 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../provider/AuthContext';
 import { IoIosAddCircle } from 'react-icons/io';
-import { NavLink } from 'react-router';
-import Swal from 'sweetalert2';
 import AddTask from '../addTask/AddTask';
 import App from './App';
-import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import TaskCard from './TaskCard';
 
 const Tasks = () => {
@@ -17,7 +14,7 @@ const Tasks = () => {
         fetch(`https://taskly-server-murex.vercel.app/tasks/${user.uid}/?category=${category}`)
             .then(res => res.json())
             .then(data => setTasks(data))
-    }, [user.uid, tasks])
+    }, [tasks])
 
     if (showForm) {
         return <AddTask setShowForm={setShowForm} ></AddTask>

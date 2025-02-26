@@ -5,6 +5,8 @@ import Navbar from '../../components/Navbar/Navbar';
 
 const Home = () => {
     const { user, isDark } = useContext(AuthContext)
+console.log(user.uid)
+
     return (
         <div data-theme={isDark ? "dark" : "light"}>
             <Navbar></Navbar>

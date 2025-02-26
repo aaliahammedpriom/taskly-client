@@ -1,7 +1,7 @@
 # Taskly - Task Management Application
 
 ## Live Demo
-[Taskly Live Application](#) *(https://taskly-66.firebaseapp.com/)*
+[Taskly Live Application](#) *(https://taskly-66.web.app/)*
 
 ## Description
 Taskly is a modern, responsive task management application that allows users to create, edit, delete, and reorder tasks with a drag-and-drop interface. Tasks are categorized into **To-Do, In Progress, and Done**, with real-time database synchronization ensuring data persistence. Authentication is handled via **Firebase**, and backend operations are managed using **Express.js** and **MongoDB**.

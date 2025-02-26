@@ -9,12 +9,11 @@ export default function App() {
   const { user } = useContext(AuthContext);
   const [tasks, setTasks] = useState({ todo: [], inProgress: [], done: [] });
   const [loading, setLoading] = useState(true);
-
   const fetchTasks = async () => {
     if (!user?.uid) return;
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:3000/tasks/${user.uid}`);
+      const response = await fetch(`https://taskly-server-murex.vercel.app/tasks/${user.uid}`);
       if (!response.ok) throw new Error("Failed to fetch tasks");
       const data = await response.json();
 
@@ -68,7 +67,7 @@ export default function App() {
           <Loading></Loading>
         ) : (
           Object.keys(tasks).map((category) => (
-            <Category key={category} category={category} tasks={tasks[category]} moveTask={moveTask} />
+            <Category key={category} category={category} tasks={tasks[category]} moveTask={moveTask} fetchTasks={fetchTasks}/>
           ))
         )}
       </div>
